@@ -1,4 +1,4 @@
-{% set version = '0.3' %}
+{% set version = '0.4.0' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/hms_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/hms/hms_{{ version }}.tar.gz
-  sha256: 9368259cbc1094ce0e4cf61544875ec30088ef690d6667e6b0b564218ab3ff88
+  sha256: f41bfec3713a16d17111012e0a31992fe54e00ec76680096e8b4844b5d39501f
 
 
   # patches:
@@ -28,13 +28,17 @@ build:
     - lib/R/lib/
     - lib/
 
-# Suggests: testthat, lubridate
+# Suggests: crayon, lubridate, pillar, testthat
 requirements:
   build:
     - r-base
+    - r-pkgconfig
+    - r-rlang
 
   run:
     - r-base
+    - r-pkgconfig
+    - r-rlang
 
 test:
   commands:
@@ -49,7 +53,7 @@ test:
     # Put any additional test requirements here.
 
 about:
-  home: https://github.com/rstats-db/hms
+  home: https://github.com/tidyverse/hms
   license: GPL-3
   summary: Implements an S3 class for storing and formatting time-of-day values, based on the
     'difftime' class.
@@ -65,24 +69,24 @@ extra:
 
 # Package: hms
 # Title: Pretty Time of Day
-# Date: 2016-11-22
-# Version: 0.3
+# Date: 2017-11-16
+# Version: 0.4.0
 # Authors@R: c( person("Kirill", "Muller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"), person("The R Consortium", role = "cph") )
 # Description: Implements an S3 class for storing and formatting time-of-day values, based on the 'difftime' class.
-# Imports: methods
-# Suggests: testthat, lubridate
+# Imports: methods, pkgconfig, rlang
+# Suggests: crayon, lubridate, pillar, testthat
 # License: GPL-3
 # Encoding: UTF-8
 # LazyData: true
-# URL: https://github.com/rstats-db/hms
-# BugReports: https://github.com/rstats-db/hms/issues
-# RoxygenNote: 5.0.1.9000
+# URL: https://github.com/tidyverse/hms
+# BugReports: https://github.com/tidyverse/hms/issues
+# RoxygenNote: 6.0.1
 # NeedsCompilation: no
-# Packaged: 2016-11-22 14:45:31 UTC; muelleki
+# Packaged: 2017-11-22 10:27:35 UTC; muelleki
 # Author: Kirill Muller [aut, cre], The R Consortium [cph]
 # Maintainer: Kirill Muller <krlmlr+r@mailbox.org>
 # Repository: CRAN
-# Date/Publication: 2016-11-22 17:08:01
+# Date/Publication: 2017-11-23 00:45:05 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
